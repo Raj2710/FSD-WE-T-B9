@@ -1,0 +1,62 @@
+.list-item{
+    background-color: darkgray !important;
+}
+
+/* *{
+    background-color:burlywood
+} */
+
+li{
+    background-color: aqua !important;
+}
+
+.lable{
+    color: chocolate;
+}
+
+.btn{
+    height: 50px;
+    width: 100px;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+.btn:hover{
+    cursor: pointer;
+    color: blue;
+    background-color: bisque;
+}
+
+.link:link{
+    color: aquamarine;
+}
+
+.link:visited{
+    color: red;
+}
+
+.link:active{
+    color: darkolivegreen;
+}
+
+input:focus{
+    background-color: burlywood;
+}
+
+table, td, th{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+thead tr{
+    background-color: cadetblue !important;
+}
+
+tr:nth-child(odd){
+    background-color: antiquewhite;
+}
+
+tr:nth-child(even){
+    background-color: cadetblue;
+}
