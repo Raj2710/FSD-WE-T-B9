@@ -6,3 +6,13 @@
 6. Now right click the file and selct copy path
 7. Open browser and past the copied path
 8. Now everytime we make the changes. Save the file and refresh the tab in the browser to see the changes.
+
+
+
+How to push code to github?
+
+1. git init - will create a local repository for the spicefied project
+2. git add . - It will add all the files to the local repository
+3. git commit -m "Commit messages" - This will save all the files to the local repo
+4. git remote add origin url - This will connect the local repo to the remote repo(only for the first time)
+5. git push -u origin master - all your local changes will be pushed to the remote repository
