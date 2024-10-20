@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.banner{
+}
+
+.banner-image{
+    width: 100%;
+}
+
+.navbar{
+    padding: 10px;
+    margin: 1px 1px 4px 1px;
+    display: grid;
+    grid-template-columns: auto auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nav-brand{
+
+}
+
+.nav-options{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+
+.nav-options > div{
+    align-content: center;
+    cursor: pointer;
+    color: rgb(107 114 128);
+}
+
+.nav-logo{
+    height: 75px;
+}
+.dropdown{
+    position: relative;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    width: 200px;
+    height:200px;
+    top: 75px;
+    border: 1px solid rgb(107 114 128);
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.services{
+    margin-top: 50px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.services-head>p{
+    color: rgb(107 114 128);
+    font-style: italic;
+}
+
+.services-body{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    height: 400px;
+    width: 250px;
+    
+}
+
+.card-image{
+    margin-left: 45px;
+    height: 120px;
+    width: 120px;
+    color: rgb(15 213 83);
+}
+
+.card-content>h2{
+    text-align: center;
+}
+
+.card-content>p{
+    color: rgb(107 114 128);
+    font-style: italic;
+    text-align: justify;
+}
+
+.p-rel-top-20{
+    position: relative;
+    top: -20px;
+}
+
+.mb-20{
+    margin-bottom: 20px;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+@media screen and (max-width:480px){
+    .banner-image{
+        height: 200px;
+    }
+}
+
+@media screen and (max-width:720px){
+    .navbar{
+        grid-template-columns: auto;
+    }
+}
