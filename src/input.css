@@ -10,3 +10,15 @@
 .gradiant{
     background-image: radial-gradient(white,rgb(59 130 246) 80%)
 }
+
+.card-hover:hover .hover-blue{
+    color:rgb(191 219 254);
+}
+
+@media screen and (max-width:1024px) {
+
+    .card-hover{
+        width:100%;
+    }
+    
+}
