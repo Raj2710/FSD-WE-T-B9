@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body>
+    <div class="container p-5">
+        <div class="text-center text-3xl">
+            Dice Game
+        </div>
+        <div class="flex justify-around">
+            <div class="text-2xl">
+                Player 1
+            </div>
+            <div class="text-2xl">
+                Player 2
+            </div>
+        </div>
+
+        <div class="flex justify-around mt-5">
+            <div class="text-5xl" id="player1">
+                0
+            </div>
+            <div class="text-5xl" id="player2">
+               0    
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <button class="bg-blue-500 text-white p-2 rounded-md hover:shadow-2xl" onclick="throwDice()" id="throwBtn">
+                Throw
+            </button>
+        </div>
+
+        <div class="text-center mt-5">
+            <button class="bg-blue-500 text-white p-2 rounded-md hover:shadow-2xl" onclick="startOver()">
+                Start Over
+            </button>
+        </div>
+
+        <div class="text-center mt-5">
+            Attempt : <span id="attempt">0</span>
+        </div>
+
+        <div class="text-2xl mt-10 text-center" id="result">
+            Game Over ! You won the game in 5 attempts
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
