@@ -121,33 +121,64 @@
 
 //Promise 
 
-let Promise1 = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        resolve("The task 1 is completed")
-    },3000)
-})
+// let Promise1 = new Promise((resolve,reject)=>{
+//     console.log("Promise 1 Invoked")
+//     setTimeout(()=>{
+//         reject("The task 1 is completed")
+//     },1000)
+// })
 
-let Promise2 = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        reject("The task 2 is incomplete")
-    },2000)
-})
+// let Promise2 = new Promise((resolve,reject)=>{
+//     console.log("Promise 2 Invoked")
+//     setTimeout(()=>{
+//         resolve("The task 2 is completed")
+//     },1000)
+// })
 
-let Promise3 = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        resolve("The task 3 is completed")
-    },5000)
-})
+// let Promise3 = new Promise((resolve,reject)=>{
+//     console.log("Promise 3 Invoked")
+//     setTimeout(()=>{
+//         reject("The task 3 is completed")
+//     },1000)
+// })
 
 
-Promise1
-.then((value)=>console.log(value))
-.catch((error)=>console.error("Error Occoured",error))
+// Promise1
+// .then((value)=>console.log(value))
+// .catch((error)=>console.error("Error Occoured",error))
+// .finally(()=>{console.log("Finally Executed")})
 
-Promise2
-.then((value)=>console.log(value))
-.catch((error)=>console.error("Error Occoured",error))
+// Promise2
+// .then((value)=>console.log(value))
+// .catch((error)=>console.error("Error Occoured",error))
 
-Promise3
-.then((value)=>console.log(value))
-.catch((error)=>console.error("Error Occoured",error))
+// Promise3
+// .then(function(value){console.log(value)})
+// .catch((error)=>console.error("Error Occoured",error))
+
+
+//all - promise fulfills when all of the input's promises fulfill 
+
+// Promise.all([Promise1,Promise2,Promise3])
+// .then((value)=>console.log(value))
+// .catch((error)=>console.error("Error Occoured",error))
+
+
+//any - promise fulfills when any of the input's promises fulfills, with this first fulfillment value
+// Promise.any([Promise1,Promise2,Promise3])
+// .then((value)=>console.log(value))
+// .catch((error)=>console.error("Error Occoured",error))
+
+//allSettled - promise fulfills when all of the input's promises settle with an array of objects that describe the outcome of each promise.
+// Promise.allSettled([Promise1,Promise2,Promise3])
+// .then((value)=>{
+//     console.log(value)
+
+//     console.log(value.filter((e)=>e.status==='fulfilled'))
+// })
+// .catch((error)=>console.error("Error Occoured",error))
+
+//race - promise settles with the eventual state of the first promise that settles.
+// Promise.race([Promise1,Promise2,Promise3])
+// .then((value)=>console.log(value))
+// .catch((error)=>console.error("Error Occoured",error))
