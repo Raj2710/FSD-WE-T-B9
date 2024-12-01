@@ -59,13 +59,7 @@
 
 // let filter = (array,callbackFn)=>{
 //     let newArr = []
-//     for(let i = 0; i<array.length;i++)
-//     {
-//         let result = callbackFn(array[i],i,array)
-
-//         if(result)
-//             newArr.push(array[i])
-//     }
+//     for(let i = 0; i<array.length;i++) if(callbackFn(array[i],i,array)) newArr.push(array[i])
 //     return newArr
 // }
 
@@ -93,3 +87,67 @@
 // })
 
 // console.log(output)
+
+
+//Callback Hell - Nested Callbacks
+
+// setTimeout(()=>{
+//     console.log("Delayed Work")
+// },1000)
+
+// setInterval(()=>{
+//     console.log("Repeated Task")
+// },3000)
+
+// setTimeout(()=>{
+//     console.log("Timeout 1")
+//     setTimeout(()=>{
+//         console.log("Timeout 2")
+//         setTimeout(()=>{
+//             console.log("Timeout 3")
+//             setTimeout(()=>{
+//                 console.log("Timeout 4")
+//                 setTimeout(()=>{
+//                     console.log("Timeout 5")
+//                     setTimeout(()=>{
+//                         console.log("Timeout 6")
+//                     },1000)
+//                 },1000)
+//             },1000)
+//         },1000)
+//     },1000)
+// },1000)
+
+
+//Promise 
+
+let Promise1 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("The task 1 is completed")
+    },3000)
+})
+
+let Promise2 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        reject("The task 2 is incomplete")
+    },2000)
+})
+
+let Promise3 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("The task 3 is completed")
+    },5000)
+})
+
+
+Promise1
+.then((value)=>console.log(value))
+.catch((error)=>console.error("Error Occoured",error))
+
+Promise2
+.then((value)=>console.log(value))
+.catch((error)=>console.error("Error Occoured",error))
+
+Promise3
+.then((value)=>console.log(value))
+.catch((error)=>console.error("Error Occoured",error))
