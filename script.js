@@ -138,8 +138,8 @@
 // let Promise3 = new Promise((resolve,reject)=>{
 //     console.log("Promise 3 Invoked")
 //     setTimeout(()=>{
-//         reject("The task 3 is completed")
-//     },1000)
+//         resolve("The task 3 is completed")
+//     },3000)
 // })
 
 
@@ -182,3 +182,109 @@
 // Promise.race([Promise1,Promise2,Promise3])
 // .then((value)=>console.log(value))
 // .catch((error)=>console.error("Error Occoured",error))
+
+
+//async - await
+
+// function resolveAfter2Seconds() {
+//     return new Promise((resolve,reject) => {
+//       setTimeout(() => {
+//         resolve('Task Completed after 2 seconds');
+//       }, 2000);
+//     });
+//   }
+
+//   resolveAfter2Seconds()
+//   .then((value)=>console.log(value))
+
+// let Promise3 = ()=>{
+//     return new Promise((resolve,reject)=>{
+//     console.log("Promise 3 Invoked")
+//     setTimeout(()=>{
+//         resolve("The task 3 is completed")
+//     },3000)
+// })}
+
+// async function asyncCall(){
+//    try{
+//     let result1 =  await resolveAfter2Seconds()
+//     let result2 = await Promise3()
+//     console.log(result1)
+//     console.log(result2)
+//    }
+//    catch(error)
+//    {
+//     console.error("Error",error)
+//    }
+//    finally{
+//     console.log("Finally Done")
+//    }
+// }
+
+// async function asyncCall(){
+//     try{
+//      let [result1,result2] = await Promise.all([resolveAfter2Seconds(),Promise3()])
+//      console.log(result1)
+//      console.log(result2)
+//     }
+//     catch(error)
+//     {
+//      console.error("Error",error)
+//     }
+//     finally{
+//      console.log("Finally Done")
+//     }
+//  }
+
+// asyncCall()
+
+// let time = 0
+// setInterval(()=>{
+//     console.log(++time)
+// },1000)
+
+
+const URL = "https://restcountries.com/v3.1/all"
+
+// fetch(URL)
+// .then((response)=>response.json())
+// .then((data)=>console.log(data))
+// .catch((error)=>console.log(error.message))
+
+const constructCards = (data)=>{
+
+    let root = document.getElementById("root")
+    root.setAttribute("class","d-flex p-3 flex-row flex-wrap")
+
+    data.forEach((country)=>
+    {
+        let cardWrapper = document.createElement("div")
+        cardWrapper.setAttribute("class","card m-3")
+        cardWrapper.setAttribute("style","width: 18rem;")
+        cardWrapper.innerHTML = `<img src="${country.flags.svg}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">${country.name.common}</h5>
+              <p class="card-text">${country.capital?country.capital[0]:"-"}</p>
+            </div>`
+         root.append(cardWrapper)
+    })
+}
+
+async function getData(){
+    try{
+        let res = await fetch(URL)
+        let data = await res.json()
+        if(res.status === 200)
+        {
+            constructCards(data)
+        }
+        else
+            throw `${res.status} : ${data.message??"Error Occoured"}` 
+        
+    }
+    catch(error)
+    {
+        alert(error)
+    }
+}
+getData()
