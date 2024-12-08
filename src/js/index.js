@@ -2,7 +2,7 @@ const BASE_URL = "https://675525cb36bcd1eec852acd9.mockapi.io/employee"
 
 
 const edit = (id)=>{
-    console.log("Clicked ",id)
+    window.location.replace(`./html/edit.html?id=${id}`)
 }
 
 const deleteEmployee = async(id)=>{
@@ -42,7 +42,7 @@ const constructTable = (data)=>{
         <td class="border border-slate-400 w-80 text-center max-md:w-auto">
             <button class="bg-gray-800 text-white p-2 rounded-md" onclick="edit(${e.id})">Edit</button>
             &nbsp;&nbsp;
-            <button class="bg-red-500 text-white p-2 rounded-md" onclick="deleteEmployee(${e.id})">Delete</button>
+            <button class="bg-red-600 text-white p-2 rounded-md" onclick="deleteEmployee(${e.id})">Delete</button>
         </td>`
 
         tBody.appendChild(tr)

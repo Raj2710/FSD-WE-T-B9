@@ -82,10 +82,72 @@
           
           
 
-        <section>
+        <section class="form-wrapper w-full mt-10 px-10">
+          <form name="myForm" id="myForm">
+
+            <label for="firstName" class="block mb-1">First Name:</label>
+            <input type="text" name="firstName" id="firstName" placeholder="First Name" class="border border-slate-500 w-full  h-10 p-1">
+            <small id="firstNameError" class="error"></small>
+            <br><br>
+
+            <label for="lastName" class="block mb-1">Last Name:</label>
+            <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="border border-slate-500 w-full  h-10 p-1 p-1">
+            <small id="lastNameError" class="error"></small>
+            <br><br>
+
+            <div class="flex justify-between flex-wrap">
+            <div>
+              <label for="dob" class="block mb-1">Date Of Birth:</label>
+              <input type="date" name="dob" id="dob" placeholder="Date Of Birth" class="border border-slate-500 w-96  h-10 p-1">
+              <small id="dobError" class="error"></small>
+            </div>
+          
+            <div>
+              <label for="doj" class="block mb-1">Date Of Joining:</label>
+              <input type="date" name="doj" id="doj" placeholder="Date Of Joining" class="border border-slate-500 w-96  h-10 p-1">
+              <small id="dojError" class="error"></small>
+            </div>
+
+            <div>
+              <label for="pan" class="block mb-1">PAN Number:</label>
+              <input type="text" name="pan" id="pan" placeholder="PAN Number" class="border border-slate-500 w-96  h-10 p-1">
+              <small id="panError" class="error"></small>
+            </div>
+          </div>
+          <br><br>
+          <div class="flex justify-between flex-wrap">
+            <div>
+              <label for="address" class="block mb-1">Address:</label>
+              <input type="text" name="address" id="address" placeholder="Address" class="border border-slate-500 w-96  h-10 p-1">
+              <small id="addressError" class="error"></small>
+            </div>
+          
+            <div>
+              <label for="email" class="block mb-1">Email</label>
+              <input type="email" name="email" id="email" placeholder="Email" class="border border-slate-500 w-96  h-10 p-1">
+              <small id="emailError" class="error"></small>
+            </div>
+
+            <div>
+              <label for="mobile" class="block mb-1">Mobile:</label>
+              <input type="text" name="mobile" id="mobile" placeholder="Mobile" class="border border-slate-500 w-96  h-10 p-1">
+              <small id="mobileError" class="error"></small>
+            </div>
+            </div>
+            <br><br>
+            <div class="flex flex-row-reverse">
+              <button class="bg-slate-800 text-xl p-2 rounded-md text-white" type="submit">
+                Create
+              </button>
+            </div>
+            
+          </form>
+
 
         </section>
 
     </div>
+
+    <script src="../js/create.js"></script>
 </body>
 </html>
