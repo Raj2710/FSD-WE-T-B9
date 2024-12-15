@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+</head>
+<body>
+    <div id="root" style="text-align: center;width: 100%;">
+
+       <div style="display: inline;">
+            <span style="font-size: 60px;" id="h"></span> 
+            <sub>HH</sub> 
+            <span style="font-size: 40px;">:</span>
+       </div>
+
+       <div style="display: inline;">
+        <span style="font-size: 60px;" id="m"></span> 
+        <sub>MM</sub> 
+        <span style="font-size: 40px;">:</span>
+       </div>
+
+       <div style="display: inline;">
+        <span style="font-size: 60px;" id="s"></span> 
+        <sub>SS</sub>
+       </div>
+
+       <div style="display: inline;">
+        <span style="font-size: 30px;" id="ms"></span>
+       </div>
+
+    </div>
+
+    <div style="text-align: center;width: 100%; margin-top: 50px;">
+        <button style="margin: 10px; font-size: 20px;" id="start" onclick="start()">Start</button>
+        <button style="margin: 10px; font-size: 20px;" id="stop" onclick="stop()">Stop</button>
+        <button style="margin: 10px; font-size: 20px;" id="reset" onclick="reset()">Reset</button>
+        <button style="margin: 10px; font-size: 20px;" id="split" onclick="split()">Split</button>
+    </div>
+
+    <div style="text-align: center;width: 100%; margin-top: 50px;" id="result">
+        
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
