@@ -8,7 +8,7 @@
 6. npm run dev - to start the application
 
 # NEVER USE THIS - ONLY FOR REFERENCE 
-# Steps To Create React App with Vite - Will Not Work
+# Steps To Create React App with CRA - Will Not Work
 
 1. Open Terminal/CMD on the speified directory
 2. Enter command - npx create-react-app project-name
