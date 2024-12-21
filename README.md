@@ -17,5 +17,5 @@
 
 # HTML to React
 1. Way of Comments changes
-2. All slef closing tags should be closed example <img> -> <img/>
+2. All slef closing tags should be closed example "<img> -> <img/>"
 3. class should be replaced with className
