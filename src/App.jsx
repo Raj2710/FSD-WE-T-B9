@@ -1,6 +1,9 @@
-import React from "react";
-
+import React,{useState} from "react";
+import Plan from "./components/Plan";
 function App() {
+
+  //  stateValue, stateFunction are the values of useState()
+  let [data,setData] = useState(0)
   let plans = [
     {
       plan: "FREE",
@@ -44,7 +47,7 @@ function App() {
     {
       plan: "PLUS",
       price: 9,
-      isEnabled: false,
+      isEnabled: true,
       features: [
         {
           feature: "5 Users",
@@ -123,6 +126,7 @@ function App() {
       ],
     },
   ];
+
   return (
     <>
       <section className="pricing py-5">
@@ -131,40 +135,15 @@ function App() {
             {plans
               .filter((e) => e.isEnabled)
               .map((plan, i) => {
-                return <div className="col-lg-4" key={i}>
-                    <div className="card mb-5 mb-lg-0">
-                      <div className="card-body">
-                        <h5 className="card-title text-muted text-uppercase text-center">
-                          {plan.plan}
-                        </h5>
-                        <h6 className="card-price text-center">
-                          ${plan.price}
-                          <span className="period">/month</span>
-                        </h6>
-                        <hr />
-                        <ul className="fa-ul">
-                          {
-                            plan.features.map((feature,i) => {
-                              return <li className={feature.isEnabled ? "" : "text-muted"} key={i}>
-                                  <span className="fa-li">
-                                    <i className={ feature.isEnabled ? "fas fa-check": "fas fa-times"}></i>
-                                  </span>
-                                  {feature.isBold ? <b>{feature.feature}</b> : feature.feature}
-                                </li>
-                          })}
-                        </ul>
-                        <div className="d-grid">
-                          <a href="#" className="btn btn-primary text-uppercase">
-                            Button
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                return <Plan key={i} plan={plan} data={data}/>//props - properties
               })}
           </div>
         </div>
       </section>
+      <button onClick={()=>{
+        setData(data+1)
+        console.log(data)
+      }}>Click Me!</button>
     </>
   );
 }
