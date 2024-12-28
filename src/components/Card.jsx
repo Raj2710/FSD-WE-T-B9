@@ -1,6 +1,18 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 function Card({cart,setCart}) {
+    
+    let [toggle,setToggle] = useState(true)
+
+    let add = ()=>{
+        setCart(cart+1)
+        setToggle(false)
+    }
+
+    let remove = ()=>{
+        setCart(cart-1)
+        setToggle(true)
+    }
   return <>
   <div className="col mb-5">
     <div className="card h-100">
@@ -21,7 +33,11 @@ function Card({cart,setCart}) {
             </div>
         </div>
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#" onClick={()=>setCart(cart+1)}>Add to cart</a></div>
+            {
+            toggle ? 
+                <div className="text-center"><a className="btn btn-outline-dark mt-auto" onClick={()=>add()}>Add to cart</a></div> :
+                <div className="text-center"><a className="btn btn-outline-dark mt-auto" onClick={()=>remove()}>Remove</a></div>
+            }
         </div>
     </div>
     </div>
@@ -29,3 +45,8 @@ function Card({cart,setCart}) {
 }
 
 export default Card
+
+
+export const doSomething = ()=>{
+    return "Hello"
+}
