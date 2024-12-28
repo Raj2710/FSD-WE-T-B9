@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-
+import ReactStars from "react-rating-stars-component";
 function Card({cart,setCart}) {
     
     let [toggle,setToggle] = useState(true)
@@ -13,6 +13,10 @@ function Card({cart,setCart}) {
         setCart(cart-1)
         setToggle(true)
     }
+
+    let ratingChanged = (value)=>{
+        console.log(value)
+    }
   return <>
   <div className="col mb-5">
     <div className="card h-100">
@@ -22,11 +26,13 @@ function Card({cart,setCart}) {
             <div className="text-center">
                 <h5 className="fw-bolder">Special Item</h5>
                 <div className="d-flex justify-content-center small text-warning mb-2">
-                    <div className="bi-star-fill"></div>
-                    <div className="bi-star-fill"></div>
-                    <div className="bi-star-fill"></div>
-                    <div className="bi-star-fill"></div>
-                    <div className="bi-star-fill"></div>
+                    <ReactStars
+                        count={5}
+                        onChange={ratingChanged}
+                        size={24}
+                        activeColor="red"
+                        value={1}
+                    />
                 </div>
                 <span className="text-muted text-decoration-line-through">$20.00</span>
                 $18.00
