@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card() {
+function Card({cart,setCart}) {
   return <>
   <div className="col mb-5">
     <div className="card h-100">
@@ -21,7 +21,7 @@ function Card() {
             </div>
         </div>
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+            <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#" onClick={()=>setCart(cart+1)}>Add to cart</a></div>
         </div>
     </div>
     </div>
