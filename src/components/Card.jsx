@@ -15,7 +15,15 @@ function Card({cart,setCart,product={}}) {
     }
 
     let ratingChanged = (value)=>{
-        console.log(value)
+        fetch(`https://675525cb36bcd1eec852acd9.mockapi.io/product/${product.id}`,{
+            method:"PUT",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({rating:value})
+
+        })
+        .catch(error=>console.log(error.message))
     }
   return <>
   <div className="col mb-5">
@@ -52,8 +60,3 @@ function Card({cart,setCart,product={}}) {
 }
 
 export default Card
-
-
-export const doSomething = ()=>{
-    return "Hello"
-}
