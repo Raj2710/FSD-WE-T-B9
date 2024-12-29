@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import ReactStars from "react-rating-stars-component";
-function Card({cart,setCart}) {
+function Card({cart,setCart,product={}}) {
     
     let [toggle,setToggle] = useState(true)
 
@@ -21,20 +21,20 @@ function Card({cart,setCart}) {
   <div className="col mb-5">
     <div className="card h-100">
         <div className="badge bg-dark text-white position-absolute" style={{top: "0.5rem", right: "0.5rem"}}>Sale</div>
-        <img className="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+        <img className="card-img-top" src={product.image} alt="..." />
         <div className="card-body p-4">
             <div className="text-center">
-                <h5 className="fw-bolder">Special Item</h5>
+                <h5 className="fw-bolder">{product.productName}</h5>
                 <div className="d-flex justify-content-center small text-warning mb-2">
                     <ReactStars
                         count={5}
                         onChange={ratingChanged}
                         size={24}
                         activeColor="red"
-                        value={1}
+                        value={product.rating%6}
                     />
                 </div>
-                <span className="text-muted text-decoration-line-through">$20.00</span>
+                <span className="text-muted text-decoration-line-through">${product.price}</span>
                 $18.00
             </div>
         </div>
