@@ -35,7 +35,8 @@ function Card({cart,setCart,product={}}) {
                     />
                 </div>
                 <span className="text-muted text-decoration-line-through">${product.price}</span>
-                $18.00
+                &nbsp;
+                ${(product.price * 0.8).toFixed(2)}
             </div>
         </div>
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
