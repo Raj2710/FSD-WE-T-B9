@@ -22,49 +22,37 @@ function reducer (state,action){
 
     case 'INCREMENT':{
         const updatedProducts = [...state.products]
-        updatedProducts.forEach(p=>{
-            if(p.id === action.id)
-            {
-                p.selectedQuantity +=1
+        let index = -1
+        for(let i = 0;i<updatedProducts.length;i++)
+            if(updatedProducts[i].id===action.id)
+                index=i
+        updatedProducts[index] = {...updatedProducts[index],selectedQuantity:updatedProducts[index].selectedQuantity+1}
 
-                state.value = state.value + p.price
-            }
-        })
         return {
             ...state,
-            products:updatedProducts
+            products:updatedProducts,
+            value:state.value+updatedProducts[index].price
         }
     }
 
     case 'DECREMENT':{
         const updatedProducts = [...state.products]
-        updatedProducts.forEach(p=>{
-            if(p.id === action.id && p.selectedQuantity>0)
-            {
-                p.selectedQuantity -=1
+        let index = -1
+        for(let i = 0;i<updatedProducts.length;i++)
+            if(updatedProducts[i].id===action.id)
+                index=i
+        updatedProducts[index] = {...updatedProducts[index],selectedQuantity:updatedProducts[index].selectedQuantity-1}
 
-                state.value = state.value - p.price
-            }
-        })
         return {
             ...state,
-            products:updatedProducts
+            products:updatedProducts,
+            value:state.value-updatedProducts[index].price
         }
     }
 
     case 'RESET':{
         
-        return {
-            products:[
-                {name:'Biscuts',id:1,price:10,selectedQuantity:0},
-                {name:'Choclates',id:2,price:5,selectedQuantity:0},
-                {name:'Oil',id:3,price:50,selectedQuantity:0},
-            ],
-            cart:[
-                {productId:1,quantity:5}
-            ],
-            value:0
-        }
+        return {...initialValue}
     }
 
    }
