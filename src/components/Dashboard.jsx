@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 
-function Dashboard() {
+function Dashboard({count,setCount}) {
 
   let navigate = useNavigate()
 
@@ -18,6 +18,13 @@ function Dashboard() {
      
       <div className="row">
 
+       <div>
+       <Button onClick={()=>{setCount(count-1)}}>-</Button>
+        &nbsp; &nbsp;
+        {count}
+        &nbsp; &nbsp;
+        <Button onClick={()=>{setCount(count+1)}}>+</Button>
+       </div>
          
           <div className="col-xl-3 col-md-6 mb-4">
               <div className="card border-left-primary shadow h-100 py-2">

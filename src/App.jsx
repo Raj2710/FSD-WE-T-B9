@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Routes, Route, Navigate } from 'react-router'
 import Dashboard from './components/Dashboard'
 import Create from './components/Create'
@@ -11,6 +11,7 @@ import Summary from './components/NestedExample/Summary'
 import Reports from './components/NestedExample/Reports'
 
 function App() {
+  let [count,setCount] = useState(0)
   return <> 
   <div id="wrapper">
 
@@ -19,8 +20,8 @@ function App() {
         <div id="content">
             <div className="container-fluid">
                 <Routes>
-                    <Route path='/dashboard' element={<Dashboard/>}/>
-                    <Route path='/create' element={<Create/>}/>
+                    <Route path='/dashboard' element={<Dashboard count={count} setCount={setCount}/>}/>
+                    <Route path='/create' element={<Create count={count} setCount={setCount}/>}/>
                     <Route path='/profile' element={<Profile/>}/>
                     <Route path='/nested-example' element={<NestedExample/>}>
                       <Route path='summary' element={<Summary/>}/>
