@@ -27,6 +27,7 @@ function App() {
                       <Route path='inbound' element={<Inbound/>}/>
                       <Route path='outbound' element={<Outbound/>}/>
                       <Route path='reports' element={<Reports/>}/>
+                      <Route path='' element={<Navigate to='summary'/>}/>
                     </Route>
                     <Route path="*" element={<Navigate to='/dashboard'/>}/>
                 </Routes>
