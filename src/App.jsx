@@ -22,7 +22,7 @@ function App() {
                 <Routes>
                     <Route path='/dashboard' element={<Dashboard count={count} setCount={setCount}/>}/>
                     <Route path='/create' element={<Create count={count} setCount={setCount}/>}/>
-                    <Route path='/profile' element={<Profile/>}/>
+                    <Route path='/profile/:id' element={<Profile/>}/>
                     <Route path='/nested-example' element={<NestedExample/>}>
                       <Route path='summary' element={<Summary/>}/>
                       <Route path='inbound' element={<Inbound/>}/>
