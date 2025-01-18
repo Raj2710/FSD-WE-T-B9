@@ -9,9 +9,18 @@ import Inbound from './components/NestedExample/Inbound'
 import Outbound from './components/NestedExample/Outbound'
 import Summary from './components/NestedExample/Summary'
 import Reports from './components/NestedExample/Reports'
+import NestedContextWrapper from './utils/NestedContextWrapper'
+export const SupportContext = React.createContext()//creating the context
 
 function App() {
   let [count,setCount] = useState(0)
+
+  let [details,setDetails] = useState({
+    name:"Sam",
+    email:"sam@gmail.com",
+    mobile:"123456789"
+  })
+
   return <> 
   <div id="wrapper">
 
@@ -19,19 +28,21 @@ function App() {
     <div id="content-wrapper" className="d-flex flex-column">
         <div id="content">
             <div className="container-fluid">
+              <SupportContext.Provider value={{details,setDetails}}>
                 <Routes>
                     <Route path='/dashboard' element={<Dashboard count={count} setCount={setCount}/>}/>
                     <Route path='/create' element={<Create count={count} setCount={setCount}/>}/>
                     <Route path='/profile/:id' element={<Profile/>}/>
                     <Route path='/nested-example' element={<NestedExample/>}>
-                      <Route path='summary' element={<Summary/>}/>
+                      <Route path='summary' element={<NestedContextWrapper><Summary/></NestedContextWrapper>}/>
                       <Route path='inbound' element={<Inbound/>}/>
                       <Route path='outbound' element={<Outbound/>}/>
-                      <Route path='reports' element={<Reports/>}/>
+                      <Route path='reports' element={<NestedContextWrapper><Reports/></NestedContextWrapper>}/>
                       <Route path='' element={<Navigate to='summary'/>}/>
                     </Route>
                     <Route path="*" element={<Navigate to='/dashboard'/>}/>
                 </Routes>
+                </SupportContext.Provider>
             </div>
         </div>
     </div>

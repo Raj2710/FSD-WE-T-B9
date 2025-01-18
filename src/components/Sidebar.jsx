@@ -1,7 +1,13 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { Link,NavLink } from 'react-router'
+import { SupportContext } from '../App'
 
 function Sidebar() {
+
+    let support = useContext(SupportContext)
+
+    console.log(support)
+
   return <>
     
     <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">

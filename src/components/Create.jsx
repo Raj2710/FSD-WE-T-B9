@@ -1,11 +1,16 @@
 import axios from 'axios';
-import React,{useState} from 'react'
+import React,{useContext} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router';
+import { SupportContext } from '../App';
 const URL = 'https://675525cb36bcd1eec852acd9.mockapi.io/usersAlt'
 
 function Create() {
+
+  let support = useContext(SupportContext)
+
+  console.log(SupportContext)
 
   let navigate = useNavigate()
 
@@ -92,6 +97,10 @@ function Create() {
             Submit
           </Button>
       </Form>
+
+      <footer>
+        For Help please contact our support team Mr.{support.details.name} at {support.details.email}.
+      </footer>
       </div>
   </>
 }

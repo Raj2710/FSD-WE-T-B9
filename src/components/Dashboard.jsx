@@ -38,12 +38,12 @@ function Dashboard({count,setCount}) {
         if(index!==-1)
         {
             //change status locally
-            let newArray = JSON.stringify(users).json()
+            let newArray = JSON.parse(JSON.stringify(users))
             newArray[index].status = !newArray[index].status
             setUsers(newArray)
 
             //change status in API Call
-            let res = await axios.put(`${URL}/{${id}`,{
+            let res = await axios.put(`${URL}/${id}`,{
                 status:!users[index].status
             })
             if(res.status === 200)
