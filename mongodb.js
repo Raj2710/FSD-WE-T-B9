@@ -262,7 +262,7 @@ db.users.find().map(function(e){
 	name:e.name,
 	email:e.email
 }
-  
+}
   
 //projection - get only what we need.
   
@@ -375,20 +375,3 @@ db.users.aggregate([
 		marks:"$userMarks.marks"
 	}}
 ])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
