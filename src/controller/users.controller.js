@@ -38,7 +38,7 @@ const getUserById = async(req,res)=>{
 const createUser = async(req,res)=>{
     try {
         let user = await usersModel.findOne({email:req.body.email})
-        console.log(user)
+        
         if(!user)
         {
             await usersModel.insertOne(req.body)
@@ -54,7 +54,7 @@ const createUser = async(req,res)=>{
         }
 
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         res.status(500).send({
             message:error.message || "Internal Server Error",
             error
