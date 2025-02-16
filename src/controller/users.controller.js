@@ -62,8 +62,62 @@ const createUser = async(req,res)=>{
     }
 }
 
+const editUserById = async(req,res)=>{
+    try {
+        let {id} = req.params
+        let user = await usersModel.findOne({_id:id})
+        if(user)
+        {
+            // await usersModel.updateOne({_id:id},{$set:req.body}) //validations will not happen
+
+            user.name = req.body.name
+            user.email = req.body.email
+
+            await user.save() //validations will happen
+
+            res.status(200).send({message:"User Data Updated Successfully"})
+        }
+        else
+        {
+            res.status(400).send({message:"Invalid Id"})
+        }
+        
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            message:error.message || "Internal Server Error"
+        })
+    }
+}
+
+const deleteUserById = async(req,res)=>{
+    try {
+        let {id} = req.params
+        let user = await usersModel.findOne({_id:id})
+        if(user)
+        {
+            await usersModel.findByIdAndDelete(id)
+
+            res.status(200).send({message:"User Data Deleted Successfully"})
+        }
+        else
+        {
+            res.status(400).send({message:"Invalid Id"})
+        }
+        
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            message:error.message || "Internal Server Error"
+        })
+    }
+}
+
+
 export default{
     getAllUsers,
     getUserById,
-    createUser
+    createUser,
+    editUserById,
+    deleteUserById
 }
