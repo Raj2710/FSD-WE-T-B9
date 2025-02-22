@@ -1,5 +1,5 @@
 import usersModel from "../model/users.model.js"
-import { hashValue, hashCompare } from "../utils/auth.js"
+import { hashValue, hashCompare, createToken } from "../utils/auth.js"
 const getAllUsers = async(req,res)=>{
     try {
         let data = await usersModel.find()
@@ -72,13 +72,18 @@ const signin = async(req,res)=>{
         {
             if(await hashCompare(password, user.password))
             {
-                res.status(200).send({message:"Login Successfull",
-                    data:{
-                        name:user.name,
-                        email:user.email,
-                        role:user.role,
-                        status:user.status
-                    }})
+                let data = {
+                    name:user.name,
+                    email:user.email,
+                    mobile:user.mobile,
+                    role:user.role,
+                    status:user.status
+                }
+                let token = await createToken(data)
+                res.status(200).send({
+                    message:"Login Successfull",
+                    token
+                })
             }
             else
                 res.status(400).send({message:"Invalid Password"})
