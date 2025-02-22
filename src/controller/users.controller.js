@@ -1,5 +1,5 @@
 import usersModel from "../model/users.model.js"
-
+import { hashValue, hashCompare } from "../utils/auth.js"
 const getAllUsers = async(req,res)=>{
     try {
         let data = await usersModel.find()
@@ -41,6 +41,7 @@ const createUser = async(req,res)=>{
         
         if(!user)
         {
+            req.body.password = await hashValue(req.body.password)
             await usersModel.insertOne(req.body)
             res.status(201).send({
                 message:"User Created Successfully"
@@ -55,6 +56,36 @@ const createUser = async(req,res)=>{
 
     } catch (error) {
         // console.log(error)
+        res.status(500).send({
+            message:error.message || "Internal Server Error",
+            error
+        })
+    }
+}
+
+const signin = async(req,res)=>{
+    try {
+        let {email,password} = req.body
+        let user = await usersModel.findOne({email})
+
+        if(user)
+        {
+            if(await hashCompare(password, user.password))
+            {
+                res.status(200).send({message:"Login Successfull",
+                    data:{
+                        name:user.name,
+                        email:user.email,
+                        role:user.role,
+                        status:user.status
+                    }})
+            }
+            else
+                res.status(400).send({message:"Invalid Password"})
+        }
+        else
+            res.status(400).send({message:`User with ${email} does not exists`})
+    } catch (error) {
         res.status(500).send({
             message:error.message || "Internal Server Error",
             error
@@ -119,5 +150,6 @@ export default{
     getUserById,
     createUser,
     editUserById,
-    deleteUserById
+    deleteUserById,
+    signin
 }
