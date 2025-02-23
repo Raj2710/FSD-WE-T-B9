@@ -9,3 +9,9 @@
     color: black;
     font-weight:400;
 }
+
+.form-wrapper{
+    width:60%;
+    margin:auto;
+    margin-top: 50px;
+}

@@ -4,10 +4,13 @@ import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import useLogout from '../../hooks/useLogout';
 
 function TopBar() {
 
   const location = useLocation()
+  const logout = useLogout()
+  const role = sessionStorage.getItem('role')
 
   const options = [
     {
@@ -32,7 +35,7 @@ function TopBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {
-              options.map((e)=>{
+              options.filter(opt=>opt.role.includes(role)).map((e)=>{
                 return <Link 
                   to={e.path} 
                   className={`nav-options ${e.path == location.pathname ? 'active':''}`} 
@@ -43,7 +46,7 @@ function TopBar() {
             }
           </Nav>
         </Navbar.Collapse>
-        <Button variant='danger'>Logout</Button>
+        <Button variant='danger' onClick={()=>logout()}>Logout</Button>
       </Container>
     </Navbar>
   </>
