@@ -1,0 +1,11 @@
+.nav-options{
+    text-decoration: none;
+    margin-left: 5px;
+    color: grey;
+    cursor: pointer;
+}
+
+.active{
+    color: black;
+    font-weight:400;
+}
