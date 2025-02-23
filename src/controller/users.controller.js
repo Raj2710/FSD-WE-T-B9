@@ -35,6 +35,25 @@ const getUserById = async(req,res)=>{
     }
 }
 
+const getUserByIdFromToken =  async(req,res)=>{
+    try {
+        let id = req.headers.id
+
+        let data = await usersModel.findOne({_id:id},{password:0,_id:0})
+
+        res.status(200).send({
+            message:"Data Fetch Successfull",
+            data
+        })
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            message:error.message || "Internal Server Error"
+        })
+    }
+}
+
 const createUser = async(req,res)=>{
     try {
         let user = await usersModel.findOne({email:req.body.email})
@@ -73,6 +92,7 @@ const signin = async(req,res)=>{
             if(await hashCompare(password, user.password))
             {
                 let data = {
+                    id:user.id,
                     name:user.name,
                     email:user.email,
                     mobile:user.mobile,
@@ -82,7 +102,8 @@ const signin = async(req,res)=>{
                 let token = await createToken(data)
                 res.status(200).send({
                     message:"Login Successfull",
-                    token
+                    token,
+                    role:user.role
                 })
             }
             else
@@ -156,5 +177,6 @@ export default{
     createUser,
     editUserById,
     deleteUserById,
+    getUserByIdFromToken,
     signin
 }

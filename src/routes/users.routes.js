@@ -7,6 +7,7 @@ import adminGuard from '../middleware/adminGuard.middleware.js'
 const router = express.Router()
 
 router.get('/',authGuard,adminGuard,usersController.getAllUsers)
+router.get('/profile',authGuard,usersController.getUserByIdFromToken)
 router.get('/:id',authGuard,usersController.getUserById)
 router.post('/signup',payloadValidator(createUserSchema),usersController.createUser),
 router.post('/signin',payloadValidator(signinSchema),usersController.signin)

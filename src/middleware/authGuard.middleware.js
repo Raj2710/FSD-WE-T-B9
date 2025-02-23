@@ -5,6 +5,7 @@ const authGuard = (req,res,next)=>{
     if(token)
     {
         let payload = decodeToken(token)
+        req.headers.id = payload.id
 
         if(Math.floor(+new Date()/1000) <= payload.exp)
             next()
