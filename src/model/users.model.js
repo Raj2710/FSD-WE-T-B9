@@ -1,5 +1,6 @@
 import mongoose from './index.model.js'
 import { ROLES } from '../constants/common.constants.js'
+import generateUUID from '../utils/common.js'
 
 const validateMobile = (value)=>{
     const mobileRegex = /^\d{10}$/
@@ -13,6 +14,7 @@ const validateRole = (value)=>{
 }
 
 let usersSchema = new mongoose.Schema({
+    id:{type:String, default:generateUUID},
     name:{type:String,required:[true,"Name is required"]},
     email:{type:String,required:[true,"Email is required"]} ,
     mobile:{
