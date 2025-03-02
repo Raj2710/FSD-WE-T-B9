@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import config from "../config/index.config.js";
+import config from "../common/config.js";
 import jwt from 'jsonwebtoken'
 
 export const hashValue = async(value)=>{

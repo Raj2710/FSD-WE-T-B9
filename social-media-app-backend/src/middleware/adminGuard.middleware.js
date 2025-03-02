@@ -1,6 +1,6 @@
 import { decodeToken } from "../utils/auth.js"
 import usersModel from "../model/users.model.js"
-import { ROLES } from "../constants/common.constants.js"
+import { ROLE } from "../common/constants.js"
 
 const adminGuard = async(req,res,next)=>{
     let token = req?.headers?.authorization?.split(" ")[1]
@@ -8,9 +8,8 @@ const adminGuard = async(req,res,next)=>{
     if(token)
     {
         let payload = decodeToken(token)
-        let user = await usersModel.findOne({email:payload.email,role:payload.role})
-        console.log(user)
-        if(user && user.role === ROLES.ADMIN)
+        let user = await usersModel.findOne({id:payload.id,role:payload.role})
+        if(user && ( user.role === ROLE.ADMIN || user.role === ROLE.SUPER_ADMIN))
             next()
         else
         res.status(401).send({message:"Access Denied"})
