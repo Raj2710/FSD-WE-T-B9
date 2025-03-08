@@ -1,9 +1,10 @@
 import React from 'react'
-
+import TopBar from '../common/TopBar'
 function AllUsers() {
-  return (
-    <div>AllUsers</div>
-  )
+  return <>
+  <TopBar/>
+  AllUsers
+  </>
 }
 
 export default AllUsers

@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
-        <Route path='/dashboard' element={<Guard><Dashboard/></Guard>}/>
+        <Route path='/dashboard' element={<AdminGuard><Dashboard/></AdminGuard>}/>
         <Route path='/feeds' element={<Guard><Feeds/></Guard>}/>
         <Route path='/users' element={<AdminGuard><AllUsers/></AdminGuard>}/>
         <Route path='/blogs' element={<Guard><MyBlogs/></Guard>}/>

@@ -1,9 +1,10 @@
 import React from 'react'
-
+import TopBar from './common/TopBar'
 function Dashboard() {
-  return (
-    <div>Dashboard</div>
-  )
+  return <>
+  <TopBar/>
+  Dashboard
+  </>
 }
 
 export default Dashboard

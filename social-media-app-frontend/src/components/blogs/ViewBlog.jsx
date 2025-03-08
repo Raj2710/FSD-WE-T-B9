@@ -1,9 +1,10 @@
 import React from 'react'
-
+import TopBar from '../common/TopBar'
 function ViewBlog() {
-  return (
-    <div>ViewBlog</div>
-  )
+  return <>
+  <TopBar/>
+  ViewBlog
+  </>
 }
 
 export default ViewBlog

@@ -1,9 +1,10 @@
 import React from 'react'
-
+import TopBar from './common/TopBar'
 function Feeds() {
-  return (
-    <div>Feeds</div>
-  )
+  return <>
+  <TopBar/>
+  Feeds
+  </>
 }
 
 export default Feeds

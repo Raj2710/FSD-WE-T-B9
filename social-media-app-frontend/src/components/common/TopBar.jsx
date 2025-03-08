@@ -17,25 +17,25 @@ function TopBar() {
       id:1,
       path:'/dashboard',
       label:'Dashboard',
-      role:['ADMIN']
+      role:['ADMIN','SUPER_ADMIN']
     },
     {
       id:2,
       path:'/feeds',
       label:'Feeds',
-      role:['ADMIN','USER']
+      role:['ADMIN','USER','SUPER_ADMIN']
     },
     {
       id:3,
       path:'/users',
       label:'User Management',
-      role:['ADMIN']
+      role:['ADMIN','SUPER_ADMIN']
     },
     {
       id:3,
       path:'/blogs',
       label:'My Blogs',
-      role:['ADMIN','USER']
+      role:['ADMIN','USER','SUPER_ADMIN']
     }
   ]
 

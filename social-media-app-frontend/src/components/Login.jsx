@@ -25,9 +25,9 @@ function Login() {
         sessionStorage.setItem('role',res.data.role)
         sessionStorage.setItem('name',`${res.data.firstName} ${res.data.lastName}`)
 
-        if(res.role==='ADMIN' || res.role==='SUPER_ADMIN')
+        if(res.data.role==='ADMIN' || res.data.role==='SUPER_ADMIN')
           navigate('/dashboard')
-        else if(res.role==='USER')
+        else if(res.data.role==='USER')
           navigate('/feeds')
 
         toast.success(res.message)
