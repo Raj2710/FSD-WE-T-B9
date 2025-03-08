@@ -11,6 +11,10 @@ let blogSchema = new mongoose.Schema({
     status:{type:String,default:BLOG_STATUS.PENDING},
     likedBy:{type:Array,default:[]},
     createdAt:{type:Date,default:Date.now},
+    approvalById:{type:String},
+    approvalByName:{type:String},
+    approvalAt:{type:Date},
+    reason:{type:String}
 },{
     collection:'blogs',
     versionKey:false
