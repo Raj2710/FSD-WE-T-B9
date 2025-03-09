@@ -191,8 +191,11 @@ const changeStatus = async(req,res)=>{
 const updateBlog = async(req,res)=>{
     try {
         let {id=""} = req.params
-
+        let userId = req.headers.id
         let blog = await blogsModel.findOne({id});
+
+        if(blog.userId != userId)
+            res.status(400).send({message:"Only owner can update!"})
 
         if(blog)
             {   

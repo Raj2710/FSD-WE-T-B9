@@ -24,6 +24,7 @@ function Login() {
         sessionStorage.setItem('token',res.token)
         sessionStorage.setItem('role',res.data.role)
         sessionStorage.setItem('name',`${res.data.firstName} ${res.data.lastName}`)
+        sessionStorage.setItem('userId',res.data.userId)
 
         if(res.data.role==='ADMIN' || res.data.role==='SUPER_ADMIN')
           navigate('/dashboard')

@@ -11,7 +11,8 @@ function TopBar() {
   const location = useLocation()
   const logout = useLogout()
   const role = sessionStorage.getItem('role')
-
+  const name = sessionStorage.getItem('name')
+  
   const options = [
     {
       id:1,
@@ -32,7 +33,7 @@ function TopBar() {
       role:['ADMIN','SUPER_ADMIN']
     },
     {
-      id:3,
+      id:4,
       path:'/blogs',
       label:'My Blogs',
       role:['ADMIN','USER','SUPER_ADMIN']
@@ -42,7 +43,7 @@ function TopBar() {
   return <>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">Auth Frontend</Navbar.Brand>
+        <Navbar.Brand href="#home">Social Media App</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -58,6 +59,8 @@ function TopBar() {
             }
           </Nav>
         </Navbar.Collapse>
+        <div className='pr-5'>{role}</div>
+        <div className='pr-5'>{name}</div>
         <Button variant='danger' onClick={()=>logout()}>Logout</Button>
       </Container>
     </Navbar>

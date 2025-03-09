@@ -8,7 +8,7 @@ import { mongoConnection } from './src/model/index.js'
 const app = express()
 
 app.use(cors())
-app.use(express.json())
+app.use(express.json({limit:'2mb'}))
 app.use(logger())
 
 app.use(appRoutes)

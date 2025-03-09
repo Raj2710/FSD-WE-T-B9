@@ -10,7 +10,6 @@ const apiService = axios.create({
 })
 
 apiService.interceptors.request.use((config)=>{
-
     if(config.authentication)
     {
         let token = sessionStorage.getItem('token')
@@ -35,7 +34,7 @@ apiService.interceptors.response.use((response)=>{
         sessionStorage.clear()
 
         setTimeout(()=>{
-            window.location.href = 'http://localhost:5173'
+            window.location.href = config.BASE_URL
         },2000)
     }
 

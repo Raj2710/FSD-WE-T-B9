@@ -147,7 +147,8 @@ const signin = async(req,res)=>{
                         data:{
                             role : user.role,
                             firstName : user.firstName,
-                            lastName : user.lastName
+                            lastName : user.lastName,
+                            userId:user.id
                         }
                     })
                 }
